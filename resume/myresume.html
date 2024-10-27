@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="backToHome">
+        <a href="../index.html">Back to Home</a>
+    </div>
+    <h1>Generated Resume</h1>
+
+    <div id="generatedResume" contenteditable="true">
+        
+    </div>
+
+    <button id="downloadBtn" onclick="window.print();">Download PDF</button>
+
+    <script src="../script.js"></script>
+</body>
+
+<script>
+const firstName = getQueryParam("firstName");
+const lastName = getQueryParam("lastName");
+const email = getQueryParam("email");
+const birthdate = getQueryParam("birthdate");
+const gender = getQueryParam("gender");
+const qualification = getQueryParam("qualification");
+const grade = getQueryParam("grade");
+const year = getQueryParam("year");
+const exp = getQueryParam("exp");
+const skills= getQueryParam("skills");
+
+const resume = `
+    <h3>Personal Information</h3>
+    <p><b> First Name:</b><span contenteditable="true">${firstName}</span></p>
+    <p><b> Last Name:</b><span contenteditable="true">${lastName}</span></p>
+    <p><b> Email I.D:</b><span contenteditable="true">${email}</span></p>
+    <p><b> Date of Birth:</b><span contenteditable="true">${birthdate}</span></p>
+    <p><b> Gender:</b><span contenteditable="true">${gender}</span></p>
+
+    <h3><b>Education</b></h3>
+    <p><b> Qualification: </b> <span contenteditable="true">${qualification}</span></p>
+    <p><b> Grade: </b> <span contenteditable="true">${grade}</span></p>
+    <p><b> Passing Year: </b> <span contenteditable="true">${year}</span></p>
+
+    <h3><b>Experience</b></h3>
+    <p><span contenteditable="true">${exp}</span></p>
+
+    <h3><b>Skills</b></h3>
+    <p><span contenteditable="true">${skills}</span></p>
+    `;
+//document.getElementById("displayFirstName").textContent = firstName || "N/A";
+
+
+
+if (generatedElement){
+        generatedElement.innerHTML = resume;
+    } else {
+        console.error("Some elements are missing");
+    }
+
+</script>
+</html>
